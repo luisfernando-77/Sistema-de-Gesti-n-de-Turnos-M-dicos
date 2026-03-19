@@ -1,125 +1,208 @@
-# 🎓 Sistema de Gestión de Turnos Médicos
+# 🏥 Sistema de Gestión de Turnos Médicos
 
-> Proyecto full-stack guiado por el docente — Programación Web 2026A
-
-[![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
+> Proyecto académico — Programación Web 2026A
 
 ---
 
-## 📖 Descripción del Proyecto
+## 📌 Descripción
 
-El **Sistema de Gestión de Turnos Médicos** es una aplicación web que permite administrar la atención médica: pacientes, médicos, horarios, turnos y reportes.
+El **Sistema de Gestión de Turnos Médicos** es una aplicación full-stack diseñada para administrar la operación de un centro médico, permitiendo gestionar pacientes, médicos, especialidades, horarios y turnos de atención.
 
----
-
-## 🛠 Stack Tecnológico
-
-| Capa | Tecnología |
-|------|-----------|
-| Backend | NestJS |
-| Frontend | Next.js |
-| Base de Datos | PostgreSQL |
-| ORM | Prisma |
-| Infraestructura | Docker |
+El sistema permite:
+- Registrar y administrar pacientes y médicos  
+- Configurar horarios disponibles  
+- Solicitar y gestionar turnos médicos  
+- Llevar control de atención  
+- Generar reportes operativos  
 
 ---
 
-## 🏗 Arquitectura
+## 🧱 Stack Tecnológico
 
-Cliente → Controller → Service → Repository → Prisma → PostgreSQL
-
----
-
-## 📊 Modelo de Datos
-
-Paciente        1 ──── N Turno  
-Medico          1 ──── N Turno  
-Especialidad    1 ──── N Medico  
-Consultorio     1 ──── N Medico  
-Horario         1 ──── N Turno  
+- **Backend:** NestJS  
+- **Frontend:** Next.js  
+- **Base de Datos:** PostgreSQL  
+- **ORM:** Prisma  
+- **Contenedores:** Docker  
 
 ---
 
-## 🚀 Plan de Releases
+## 🚀 Arquitectura
 
-### Release 1 — Backend + Frontend Base
+El backend sigue una arquitectura en capas:
 
-📅 Cierre: 17 Abril 2026  
-
-| Sprint | HUs |
-|--------|-----|
-| Sprint 1 | HU-01, HU-02 |
-| Sprint 2 | HU-03, HU-04 |
-| Sprint 3 | HU-05, HU-06 |
+```
+Controller → Service → Repository
+```
 
 ---
 
-### Release 2 — Integración + Reportes
+## 📅 Plan de Releases
 
-📅 Cierre: 22 Mayo 2026  
+### 🔹 Release 1 — Backend + Frontend Base  
+📆 Cierre: 17 de abril de 2026  
 
-| Sprint | HUs |
-|--------|-----|
-| Sprint 4 | HU-07, HU-08 |
-| Sprint 5 | HU-09, HU-10 |
+**Objetivo:** API REST completa + CRUDs + frontend básico  
+
+#### Sprint 1 — Infraestructura y entidades base
+- Docker + Prisma  
+- CRUD: Pacientes, Médicos  
+
+#### Sprint 2 — Entidades médicas
+- Especialidades  
+- Consultorios  
+- Horarios disponibles  
+
+#### Sprint 3 — Turnos + Frontend base
+- Solicitud y gestión de turnos  
+- Estados de turno  
+- Formularios y listados  
 
 ---
 
-## 📌 Historias de Usuario
+### 🔹 Release 2 — Integración y Reportes  
+📆 Cierre: 22 de mayo de 2026  
 
-| HU | Descripción |
-|----|------------|
+**Objetivo:** Integración completa + reportes  
+
+#### Sprint 4 — Frontend avanzado
+- Navegación completa  
+- Formularios dinámicos  
+- Agenda del médico  
+
+#### Sprint 5 — Reportes y cierre
+- Historial de pacientes  
+- Reportes de turnos  
+- Métricas y pruebas finales  
+
+---
+
+## 📖 Historias de Usuario
+
+El sistema incluye 10 historias de usuario principales:
+
+| Código | Descripción |
+|--------|------------|
 | HU-01 | Gestión de Pacientes |
 | HU-02 | Gestión de Médicos |
 | HU-03 | Gestión de Especialidades |
 | HU-04 | Gestión de Consultorios |
 | HU-05 | Configuración de Horarios |
-| HU-06 | Solicitud de Turno |
+| HU-06 | Solicitud de Turnos |
 | HU-07 | Gestión de Turnos |
 | HU-08 | Registro de Atención |
 | HU-09 | Agenda del Médico |
-| HU-10 | Reportes |
-
----
-
-## 📅 Cronograma
-
-Sprint 1 → Pacientes y Médicos  
-Sprint 2 → Especialidades y Consultorios  
-Sprint 3 → Turnos y Horarios  
-Sprint 4 → Frontend + Integración  
-Sprint 5 → Reportes  
+| HU-10 | Reportes de Turnos |
 
 ---
 
 ## ✅ Definition of Done (DoD)
 
-### Backend
-- [ ] Arquitectura en capas
-- [ ] DTOs validados
-- [ ] Manejo de errores
-- [ ] Endpoints funcionales
-
-### Frontend
-- [ ] Formularios funcionales
-- [ ] Consumo de API
-- [ ] Manejo de estados
-
-### Infraestructura
-- [ ] Docker funcionando
-- [ ] Base de datos conectada
-- [ ] Proyecto ejecutable
+### 🔧 Backend
+- Arquitectura en capas implementada  
+- DTOs con validaciones  
+- Manejo de errores HTTP  
+- Validaciones de negocio:
+  - Disponibilidad del médico  
+  - No duplicidad de turnos  
+  - Existencia de entidades  
+- Estados del turno correctamente gestionados  
+- Pruebas con Postman  
 
 ---
 
-## ⚙ Instalación
+### 🎨 Frontend
+- Componentes reutilizables  
+- Consumo de API  
+- Estados: loading, éxito y error  
+- Formularios validados  
+- Selects dinámicos (especialidad → médico → horario)  
+- Diseño responsivo  
+
+---
+
+### ⚙️ Infraestructura
+- Proyecto versionado en GitHub  
+- Docker funcionando (`docker compose up`)  
+- Migraciones Prisma aplicadas  
+- Sin errores críticos  
+
+---
+
+## 🗃️ Modelo de Datos
+
+### Relaciones principales
+
+- Paciente → Turno (1:N)  
+- Médico → Turno (1:N)  
+- Especialidad → Médico (1:N)  
+- Médico → HorarioDisponible (1:N)  
+
+---
+
+### Entidades principales
+
+**Paciente**
+- id, nombres, apellidos  
+- documentoIdentidad (único)  
+- eps, tipoSangre, teléfono, correo  
+
+**Médico**
+- id, nombres, apellidos  
+- registro profesional (único)  
+- especialidadId, consultorioId  
+
+**Especialidad**
+- id, nombre (único), descripción  
+
+**Consultorio**
+- id, nombre (único), ubicación  
+
+**HorarioDisponible**
+- medicoId, día, horaInicio, horaFin  
+
+**Turno**
+- pacienteId, medicoId, fecha, hora  
+- estado (pendiente, confirmado, cancelado, atendido, no asistido)  
+
+---
+
+## 📊 Funcionalidades Clave
+
+- ✔ CRUD completo de entidades  
+- ✔ Gestión de turnos médicos  
+- ✔ Validación de disponibilidad  
+- ✔ Agenda del médico  
+- ✔ Reportes por fechas  
+- ✔ Métricas de atención  
+
+---
+
+## 🐳 Ejecución del Proyecto
 
 ```bash
-git clone https://github.com/luisfernando-77/Grupo8_Perez_Mu-oz.git
-cd Grupo8_Perez_Mu-oz
+# Clonar repositorio
+git clone  https://github.com/luisfernando-77/Grupo8_Perez_Mu-oz.git
 
+# Entrar al proyecto
+cd proyecto
+
+# Levantar servicios
 docker compose up
+```
+
+---
+
+## 📌 Estado del Proyecto
+
+- [x] Plan de releases  
+- [x] Historias de usuario  
+- [x] Modelo de datos  
+- [x] Definition of Done  
+- [ ] Implementación en progreso  
+
+---
+
+## 🔗 Repositorio
+
+ https://github.com/luisfernando-77/Grupo8_Perez_Mu-oz.git
