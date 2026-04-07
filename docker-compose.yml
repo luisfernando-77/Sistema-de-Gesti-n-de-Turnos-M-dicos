@@ -19,5 +19,22 @@ services:
       timeout: 5s
       retries: 5
 
+  backend:
+    build: ./backend
+    container_name: turnos_backend
+    restart: unless-stopped
+    ports:
+      - '3001:3001'
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      PORT: 3001
+    volumes:
+      - ./backend:/app
+    command: npm run start:dev
+
 volumes:
   postgres_data:
