@@ -25,7 +25,11 @@ async function bootstrap() {
       transform: true,
     }),
   );
-
+  // habilitar el cors
+  app.enableCors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+});
   // Filtros e interceptores globales
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(new ResponseInterceptor());

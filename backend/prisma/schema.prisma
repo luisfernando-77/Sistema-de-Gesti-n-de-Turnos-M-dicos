@@ -6,9 +6,9 @@ datasource db {
   provider = "postgresql"
 }
 
-/* ======================
-   PACIENTES
-====================== */
+// ======================
+// PACIENTES
+// ======================
 
 model Paciente {
   id        Int     @id @default(autoincrement())
@@ -18,9 +18,9 @@ model Paciente {
   turnos    Turno[]
 }
 
-/* ======================
-   ESPECIALIDADES
-====================== */
+// ======================
+// ESPECIALIDADES
+// ======================
 
 model Especialidad {
   id       Int      @id @default(autoincrement())
@@ -28,33 +28,35 @@ model Especialidad {
   medicos  Medico[]
 }
 
-/* ======================
-   MEDICOS
-====================== */
+// ======================
+// MEDICOS
+// ======================
 
 model Medico {
   id              Int            @id @default(autoincrement())
   nombre          String
   correo          String         @unique
+
   especialidadId  Int
   especialidad    Especialidad   @relation(fields: [especialidadId], references: [id])
+
   turnos          Turno[]
 }
 
-/* ======================
-   CONSULTORIOS
-====================== */
+// ======================
+// CONSULTORIOS
+// ======================
 
 model Consultorio {
-  id       Int     @id @default(autoincrement())
-  nombre   String
-  ubicacion String
-  turnos   Turno[]
+  id         Int     @id @default(autoincrement())
+  nombre     String
+  ubicacion  String
+  turnos     Turno[]
 }
 
-/* ======================
-   TURNOS MEDICOS
-====================== */
+// ======================
+// TURNOS MEDICOS
+// ======================
 
 model Turno {
   id             Int          @id @default(autoincrement())
@@ -71,9 +73,9 @@ model Turno {
   consultorio    Consultorio  @relation(fields: [consultorioId], references: [id])
 }
 
-/* ======================
-   ENUMS
-====================== */
+// ======================
+// ENUMS
+// ======================
 
 enum EstadoTurno {
   PENDIENTE
