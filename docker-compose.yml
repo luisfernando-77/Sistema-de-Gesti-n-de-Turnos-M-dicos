@@ -21,6 +21,7 @@ services:
 
   backend:
     build: ./backend
+    Dockerfile: Dockerfile
     container_name: turnos_backend
     restart: unless-stopped
     ports:
