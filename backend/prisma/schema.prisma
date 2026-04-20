@@ -1,3 +1,21 @@
+// ============================================================
+// ESQUEMA DE BASE DE DATOS — SISTEMA DE TURNOS MÉDICOS
+// ============================================================
+//
+// Prisma usa este archivo para:
+//   1. Crear tablas y migraciones
+//   2. Generar Prisma Client
+//   3. Validar relaciones y consultas
+//
+// DIAGRAMA GENERAL:
+//
+// Especialidad ──1:N──> Medico
+// Paciente ──1:N──> Turno
+// Medico ──1:N──> Turno
+// Consultorio ──1:N──> Turno
+//
+// ============================================================
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -6,31 +24,49 @@ datasource db {
   provider = "postgresql"
 }
 
-// ======================
+// ============================================================
 // PACIENTES
-// ======================
+// Representa un paciente del sistema médico.
+// Puede tener MUCHOS turnos.
+// ============================================================
 
 model Paciente {
-  id        Int     @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   nombre    String
-  correo    String  @unique
+  correo    String   @unique
   telefono  String?
+
   turnos    Turno[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("pacientes")
 }
 
-// ======================
-// ESPECIALIDADES
-// ======================
+// ============================================================
+// ESPECIALIDADES MÉDICAS
+// Ej: Pediatría, Cardiología, Dermatología
+// Una especialidad puede tener MUCHOS médicos.
+// ============================================================
 
 model Especialidad {
-  id       Int      @id @default(autoincrement())
-  nombre   String   @unique
-  medicos  Medico[]
+  id        Int      @id @default(autoincrement())
+  nombre    String   @unique
+
+  medicos   Medico[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("especialidades")
 }
 
-// ======================
-// MEDICOS
-// ======================
+// ============================================================
+// MÉDICOS
+// Pertenece a UNA especialidad.
+// Puede atender MUCHOS turnos.
+// ============================================================
 
 model Medico {
   id              Int            @id @default(autoincrement())
@@ -41,22 +77,36 @@ model Medico {
   especialidad    Especialidad   @relation(fields: [especialidadId], references: [id])
 
   turnos          Turno[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("medicos")
 }
 
-// ======================
+// ============================================================
 // CONSULTORIOS
-// ======================
+// Lugar físico donde se atienden los pacientes.
+// ============================================================
 
 model Consultorio {
-  id         Int     @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   nombre     String
   ubicacion  String
+
   turnos     Turno[]
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("consultorios")
 }
 
-// ======================
-// TURNOS MEDICOS
-// ======================
+// ============================================================
+// TURNOS MÉDICOS
+// Relaciona:
+//   Paciente + Médico + Consultorio + Fecha
+// ============================================================
 
 model Turno {
   id             Int          @id @default(autoincrement())
@@ -71,11 +121,17 @@ model Turno {
 
   consultorioId  Int
   consultorio    Consultorio  @relation(fields: [consultorioId], references: [id])
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("turnos")
 }
 
-// ======================
+// ============================================================
 // ENUMS
-// ======================
+// Estados posibles de un turno médico
+// ============================================================
 
 enum EstadoTurno {
   PENDIENTE

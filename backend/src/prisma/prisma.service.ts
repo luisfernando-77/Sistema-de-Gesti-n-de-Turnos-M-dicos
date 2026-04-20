@@ -5,13 +5,9 @@ import { PrismaPg } from '@prisma/adapter-pg';
 @Injectable()
 export class PrismaService
   extends PrismaClient
-  implements OnModuleInit, OnModuleDestroy
-{
-  constructor() {
-    if (!process.env.DATABASE_URL) {
-      throw new Error('DATABASE_URL no definida');
-    }
+  implements OnModuleInit, OnModuleDestroy {
 
+  constructor() {
     const adapter = new PrismaPg({
       connectionString: process.env.DATABASE_URL,
     });
@@ -21,7 +17,6 @@ export class PrismaService
 
   async onModuleInit() {
     await this.$connect();
-    console.log('✅ Prisma conectado a PostgreSQL');
   }
 
   async onModuleDestroy() {
