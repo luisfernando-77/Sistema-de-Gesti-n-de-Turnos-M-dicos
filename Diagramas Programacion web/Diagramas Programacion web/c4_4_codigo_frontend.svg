@@ -1,0 +1,120 @@
+<svg viewBox="0 0 1000 660" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1000" height="660" fill="#f0f4f8" rx="12"/>
+  <text x="500" y="36" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a2e4a">Frontend — Next.js 15</text>
+  <text x="500" y="56" text-anchor="middle" font-size="12" fill="#5a7184">Diagrama C4 — Nivel 3: Código Frontend</text>
+  <line x1="60" y1="66" x2="940" y2="66" stroke="#c0cdd8" stroke-width="1.5"/>
+
+  <!-- layout.tsx raíz -->
+  <rect x="380" y="90" width="240" height="80" rx="10" fill="#0f172a"/>
+  <text x="500" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">app/layout.tsx</text>
+  <text x="500" y="138" text-anchor="middle" font-size="10" fill="#94a3b8">Layout raíz de la aplicación</text>
+  <text x="500" y="153" text-anchor="middle" font-size="10" fill="#94a3b8">globals.css | Metadata global</text>
+
+  <!-- page.tsx (login/landing) -->
+  <rect x="760" y="90" width="180" height="70" rx="8" fill="#1e293b"/>
+  <text x="850" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">app/page.tsx</text>
+  <text x="850" y="136" text-anchor="middle" font-size="10" fill="#94a3b8">Página de inicio /</text>
+  <text x="850" y="150" text-anchor="middle" font-size="10" fill="#94a3b8">Login principal</text>
+  <line x1="760" y1="125" x2="622" y2="125" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#p1)"/>
+
+  <!-- Dashboard Layout -->
+  <rect x="60" y="90" width="200" height="70" rx="8" fill="#1e293b"/>
+  <text x="160" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">app/(dashboard)/layout.tsx</text>
+  <text x="160" y="133" text-anchor="middle" font-size="10" fill="#94a3b8">Layout del dashboard</text>
+  <text x="160" y="148" text-anchor="middle" font-size="10" fill="#94a3b8">+ Sidebar component</text>
+  <line x1="262" y1="125" x2="378" y2="125" stroke="#475569" stroke-width="1.5" marker-end="url(#p2)"/>
+
+  <!-- Páginas del dashboard -->
+  <text x="500" y="230" text-anchor="middle" font-size="11" fill="#475569" font-weight="bold">— Páginas del Dashboard —</text>
+
+  <rect x="60" y="250" width="155" height="100" rx="8" fill="#0369a1"/>
+  <text x="137" y="278" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Turnos / Citas</text>
+  <line x1="78" y1="286" x2="198" y2="286" stroke="#7dd3fc" stroke-width="1"/>
+  <text x="137" y="302" text-anchor="middle" font-size="10" fill="#e0f2fe">citas/page.tsx</text>
+  <text x="137" y="317" text-anchor="middle" font-size="10" fill="#e0f2fe">Listado y gestión</text>
+  <text x="137" y="332" text-anchor="middle" font-size="10" fill="#e0f2fe">de turnos</text>
+
+  <rect x="235" y="250" width="155" height="100" rx="8" fill="#15803d"/>
+  <text x="312" y="278" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Pacientes</text>
+  <line x1="253" y1="286" x2="373" y2="286" stroke="#86efac" stroke-width="1"/>
+  <text x="312" y="302" text-anchor="middle" font-size="10" fill="#dcfce7">pacientes/page.tsx</text>
+  <text x="312" y="317" text-anchor="middle" font-size="10" fill="#dcfce7">CRUD pacientes</text>
+  <text x="312" y="332" text-anchor="middle" font-size="10" fill="#dcfce7">registrados</text>
+
+  <rect x="410" y="250" width="155" height="100" rx="8" fill="#dc2626"/>
+  <text x="487" y="278" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Médicos</text>
+  <line x1="428" y1="286" x2="548" y2="286" stroke="#fca5a5" stroke-width="1"/>
+  <text x="487" y="302" text-anchor="middle" font-size="10" fill="#fee2e2">medicos/page.tsx</text>
+  <text x="487" y="317" text-anchor="middle" font-size="10" fill="#fee2e2">CRUD médicos</text>
+  <text x="487" y="332" text-anchor="middle" font-size="10" fill="#fee2e2">y especialidades</text>
+
+  <rect x="585" y="250" width="155" height="100" rx="8" fill="#b45309"/>
+  <text x="662" y="278" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Especialidades</text>
+  <line x1="603" y1="286" x2="723" y2="286" stroke="#fcd34d" stroke-width="1"/>
+  <text x="662" y="302" text-anchor="middle" font-size="10" fill="#fef3c7">especialidades/page.tsx</text>
+  <text x="662" y="317" text-anchor="middle" font-size="10" fill="#fef3c7">Gestión de</text>
+  <text x="662" y="332" text-anchor="middle" font-size="10" fill="#fef3c7">especialidades</text>
+
+  <rect x="760" y="250" width="155" height="100" rx="8" fill="#7c3aed"/>
+  <text x="837" y="278" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Dashboard</text>
+  <line x1="778" y1="286" x2="898" y2="286" stroke="#ddd6fe" stroke-width="1"/>
+  <text x="837" y="302" text-anchor="middle" font-size="10" fill="#ede9fe">dashboard/page.tsx</text>
+  <text x="837" y="317" text-anchor="middle" font-size="10" fill="#ede9fe">Resumen general</text>
+  <text x="837" y="332" text-anchor="middle" font-size="10" fill="#ede9fe">del sistema</text>
+
+  <!-- Capa de servicios -->
+  <text x="500" y="395" text-anchor="middle" font-size="11" fill="#475569" font-weight="bold">— Capa de Servicios (app/services/) —</text>
+
+  <rect x="60" y="410" width="170" height="80" rx="8" fill="#1e3a5f"/>
+  <text x="145" y="438" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">turnos.service.ts</text>
+  <text x="145" y="456" text-anchor="middle" font-size="10" fill="#93c5fd">GET/POST/PUT/DELETE</text>
+  <text x="145" y="471" text-anchor="middle" font-size="10" fill="#93c5fd">/api/turnos</text>
+
+  <rect x="250" y="410" width="170" height="80" rx="8" fill="#1e3a5f"/>
+  <text x="335" y="438" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">pacientes.service.ts</text>
+  <text x="335" y="456" text-anchor="middle" font-size="10" fill="#93c5fd">GET/POST/PUT/DELETE</text>
+  <text x="335" y="471" text-anchor="middle" font-size="10" fill="#93c5fd">/api/pacientes</text>
+
+  <rect x="440" y="410" width="170" height="80" rx="8" fill="#1e3a5f"/>
+  <text x="525" y="438" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">doctores.service.ts</text>
+  <text x="525" y="456" text-anchor="middle" font-size="10" fill="#93c5fd">GET/POST/PUT/DELETE</text>
+  <text x="525" y="471" text-anchor="middle" font-size="10" fill="#93c5fd">/api/medicos</text>
+
+  <rect x="630" y="410" width="185" height="80" rx="8" fill="#1e3a5f"/>
+  <text x="722" y="438" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">especialidades.service.ts</text>
+  <text x="722" y="456" text-anchor="middle" font-size="10" fill="#93c5fd">GET/POST/PUT/DELETE</text>
+  <text x="722" y="471" text-anchor="middle" font-size="10" fill="#93c5fd">/api/especialidades</text>
+
+  <!-- Interfaces e API lib -->
+  <rect x="60" y="545" width="400" height="80" rx="8" fill="#374151"/>
+  <text x="260" y="573" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">app/interfaces/</text>
+  <line x1="80" y1="582" x2="440" y2="582" stroke="#6b7280" stroke-width="1"/>
+  <text x="260" y="598" text-anchor="middle" font-size="10" fill="#d1d5db">turno | paciente | doctor | especialidad | usuario</text>
+  <text x="260" y="613" text-anchor="middle" font-size="10" fill="#d1d5db">TypeScript interfaces para tipado</text>
+
+  <rect x="490" y="545" width="325" height="80" rx="8" fill="#374151"/>
+  <text x="652" y="573" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">app/lib/api.ts + components/</text>
+  <line x1="510" y1="582" x2="800" y2="582" stroke="#6b7280" stroke-width="1"/>
+  <text x="652" y="598" text-anchor="middle" font-size="10" fill="#d1d5db">Configuración Axios base URL</text>
+  <text x="652" y="613" text-anchor="middle" font-size="10" fill="#d1d5db">Sidebar.tsx — layout/navegación</text>
+
+  <!-- Flechas páginas -> servicios -->
+  <line x1="137" y1="352" x2="137" y2="408" stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#p3)"/>
+  <line x1="312" y1="352" x2="320" y2="408" stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#p3)"/>
+  <line x1="487" y1="352" x2="510" y2="408" stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#p3)"/>
+  <line x1="662" y1="352" x2="700" y2="408" stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#p3)"/>
+
+  <!-- Servicios -> Backend API -->
+  <rect x="820" y="545" width="140" height="80" rx="8" fill="#16a34a"/>
+  <text x="890" y="573" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Backend API</text>
+  <text x="890" y="591" text-anchor="middle" font-size="10" fill="#bbf7d0">NestJS :3001</text>
+  <text x="890" y="606" text-anchor="middle" font-size="10" fill="#bbf7d0">REST / JSON</text>
+  <line x1="818" y1="490" x2="890" y2="543" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#p4)"/>
+
+  <defs>
+    <marker id="p1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#475569"/></marker>
+    <marker id="p2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#475569"/></marker>
+    <marker id="p3" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1e3a5f"/></marker>
+    <marker id="p4" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#16a34a"/></marker>
+  </defs>
+</svg>
